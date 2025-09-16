@@ -72,6 +72,49 @@
         .item-logo { width: 50px; height: 50px; margin-right: 1rem; }
         .item-details h4, .item-details p { margin: 0; }
         .item-details p { color: var(--text-secondary-color); }
+
+        /* Styles for Post Section */
+        .profile-post-item {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        .profile-post-item:first-of-type {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        .post-content p {
+            margin: 0.5rem 0;
+            line-height: 1.5;
+        }
+        .post-stats {
+            font-size: 0.8rem;
+            color: var(--text-secondary-color);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .post-stats span { margin-right: 1rem; }
+        .post-interaction {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 0.5rem;
+        }
+        .interaction-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary-color);
+            font-weight: bold;
+            padding: 0.75rem;
+            border-radius: 4px;
+            flex-grow: 1;
+        }
+        .interaction-btn i { margin-right: 0.5rem; }
+        .interaction-btn:hover {
+            background-color: #f3f2ef;
+        }
+
         @media (max-width: 768px) {
             .header { padding: 0 1rem; }
             .search-bar { display: none; }
@@ -90,7 +133,7 @@
         </div>
         <div class="header-right">
             <nav class="main-nav">
-                <a href="https://fluratech.github.io/Byteforce" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="https://fluratech.github.io/Byteforce/" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
                 <a href="https://fluratech.github.io/Byteforce/network.html" class="nav-item"><i class="fas fa-users"></i><span>My Network</span></a>
                 <a href="#" class="nav-item"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
                 <a href="https://fluratech.github.io/Byteforce/messaging.html" class="nav-item"><i class="fas fa-comment-dots"></i><span>Messaging</span></a>
@@ -136,6 +179,25 @@
             </div>
         </div>
 
+        <!-- Recent Posts Card -->
+        <div class="content-card card">
+            <h2>Recent Posts</h2>
+            <div class="profile-post-item">
+                <div class="post-content">
+                    <p>We are hiring summer interns for marketing and software development roles at InnovateStartups! This is a great opportunity for current students to get hands-on experience. Feel free to reach out if you're interested. #Internship #Hiring #Opportunities</p>
+                </div>
+                <div class="post-stats">
+                    <span><i class="fas fa-thumbs-up"></i> 94 Likes</span>
+                    <span>68 Comments</span>
+                </div>
+                <div class="post-interaction">
+                    <button class="interaction-btn"><i class="far fa-thumbs-up"></i> Like</button>
+                    <button class="interaction-btn"><i class="far fa-comment"></i> Comment</button>
+                    <button class="interaction-btn"><i class="far fa-share-square"></i> Share</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Education Card -->
         <div class="content-card card">
             <h2>Education</h2>
@@ -151,3 +213,4 @@
     </main>
 </body>
 </html>
+
