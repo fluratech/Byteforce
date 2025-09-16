@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging - AlumniNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Styles (reused from index.html) -->
+    <style>
+        :root {
+            --primary-color: #0A66C2;
+            --background-color: #f3f2ef;
+            --card-background-color: #ffffff;
+            --text-color: #333333;
+            --text-secondary-color: #666666;
+            --border-color: #e0e0e0;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--background-color); margin: 0; padding-top: 55px; color: var(--text-color); }
+        .header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--card-background-color); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; padding: 0 10%; height: 55px; z-index: 1000; }
+        .header-left { display: flex; align-items: center; }
+        .logo { color: var(--primary-color); font-size: 1.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem; }
+        .search-bar { background-color: #eef3f8; border-radius: 4px; display: flex; align-items: center; padding: 0.5rem; width: 280px; }
+        .search-bar i { color: var(--text-secondary-color); }
+        .search-bar input { border: none; background: transparent; outline: none; margin-left: 0.5rem; width: 100%; }
+        .header-right { display: flex; align-items: center; }
+        .main-nav { display: flex; }
+        .nav-item { text-decoration: none; color: var(--text-secondary-color); display: flex; flex-direction: column; align-items: center; padding: 0 1rem; font-size: 0.8rem; }
+        .nav-item i { font-size: 1.2rem; }
+        .nav-item.active, .nav-item:hover { color: var(--text-color); }
+        .user-profile { display: flex; flex-direction: column; align-items: center; cursor: pointer; margin-left: 1rem; font-size: 0.8rem; color: var(--text-secondary-color); }
+        .profile-pic { width: 25px; height: 25px; border-radius: 50%; }
+
+        /* Messaging Specific Styles */
+        .messaging-container {
+            max-width: 1128px;
+            margin: 1.5rem auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            height: calc(100vh - 55px - 3rem);
+            border: 1px solid var(--border-color);
+            background: var(--card-background-color);
+            border-radius: 8px;
+        }
+        .conversations-list { border-right: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        .conversations-header { padding: 1rem; border-bottom: 1px solid var(--border-color); }
+        .conversations-header h3 { margin: 0; }
+        .conversations { overflow-y: auto; flex-grow: 1; }
+        .conversation { display: flex; align-items: center; padding: 1rem; cursor: pointer; }
+        .conversation:hover, .conversation.active { background-color: var(--background-color); }
+        .conversation img { width: 50px; height: 50px; border-radius: 50%; margin-right: 1rem; }
+        .convo-details h5 { margin: 0; font-size: 1rem; }
+        .convo-details p { margin: 0.2rem 0 0; font-size: 0.8rem; color: var(--text-secondary-color); }
+
+        .chat-window { display: flex; flex-direction: column; }
+        .chat-header { padding: 1rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; }
+        .chat-header img { width: 40px; height: 40px; border-radius: 50%; margin-right: 1rem; }
+        .chat-header h4 { margin: 0; }
+        .chat-messages { flex-grow: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; }
+        .message { max-width: 70%; margin-bottom: 1rem; padding: 0.75rem; border-radius: 12px; line-height: 1.4; }
+        .message.sent { background-color: var(--primary-color); color: white; align-self: flex-end; border-bottom-right-radius: 0;}
+        .message.received { background-color: var(--background-color); align-self: flex-start; border-bottom-left-radius: 0; }
+        .chat-input { display: flex; padding: 1rem; border-top: 1px solid var(--border-color); }
+        .chat-input input { flex-grow: 1; border: 1px solid var(--border-color); border-radius: 20px; padding: 0.75rem 1rem; font-size: 1rem; outline: none;}
+        .chat-input button { background: var(--primary-color); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; margin-left: 1rem; font-size: 1.2rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> AlumniNet</a>
+            <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="network.html" class="nav-item"><i class="fas fa-users"></i><span>My Network</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
+                <a href="messaging.html" class="nav-item active"><i class="fas fa-comment-dots"></i><span>Messaging</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Events</span></a>
+            </nav>
+            <a href="profile.html" class="user-profile">
+                <img src="https://i.pravatar.cc/40?img=12" alt="User Avatar" class="profile-pic">
+                <span>Me <i class="fas fa-caret-down"></i></span>
+            </a>
+        </div>
+    </header>
+
+    <main class="messaging-container">
+        <div class="conversations-list">
+            <div class="conversations-header"><h3>Messaging</h3></div>
+            <div class="conversations">
+                <div class="conversation active">
+                    <img src="https://i.pravatar.cc/50?img=3" alt="Priya Patel">
+                    <div class="convo-details">
+                        <h5>Priya Patel</h5>
+                        <p>Perfect, thank you!</p>
+                    </div>
+                </div>
+                <div class="conversation">
+                    <img src="https://i.pravatar.cc/50?img=4" alt="Rohan Joshi">
+                    <div class="convo-details">
+                        <h5>Rohan Joshi</h5>
+                        <p>Sounds like a plan. Let's connect...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-window">
+            <div class="chat-header">
+                <img src="https://i.pravatar.cc/40?img=3" alt="Priya Patel">
+                <h4>Priya Patel</h4>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">Hi Aarav, thanks for connecting! Great to see students taking initiative.</div>
+                <div class="message sent">Hi Priya! Absolutely. Your post about the Google Maps feature was really inspiring. I had a quick question about it if you don't mind?</div>
+                <div class="message received">Not at all, ask away!</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Write a message...">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

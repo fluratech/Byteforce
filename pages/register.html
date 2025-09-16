@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AlumniNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A66C2;
+            --background-color: #f3f2ef;
+            --card-background-color: #ffffff;
+            --text-color: #333333;
+            --text-secondary-color: #666666;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding-top: 2rem;
+        }
+        .logo {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+        }
+        .register-card {
+            background-color: var(--card-background-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .role-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .role-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-secondary-color);
+            transition: all 0.3s;
+        }
+        .role-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-container { display: none; }
+        .form-container.active { display: block; }
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #004182;
+        }
+        .login-link {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .login-link a {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="logo">
+        <i class="fas fa-graduation-cap"></i> AlumniNet
+    </a>
+    <div class="register-card">
+        <h1>Make the most of your professional life</h1>
+        <div class="role-selector">
+            <button class="role-btn active" data-form="student-form">Student</button>
+            <button class="role-btn" data-form="alumni-form">Alumni</button>
+            <button class="role-btn" data-form="college-form">College</button>
+        </div>
+
+        <!-- Student Form -->
+        <div id="student-form" class="form-container active">
+            <form action="index.html">
+                <div class="form-group"><label for="s-name">Full Name</label><input type="text" id="s-name" required></div>
+                <div class="form-group"><label for="s-college-id">College ID</label><input type="text" id="s-college-id" required></div>
+                <div class="form-group"><label for="s-email">Email Address</label><input type="email" id="s-email" required></div>
+                <div class="form-group"><label for="s-grad-year">Expected Graduation Year</label><input type="number" id="s-grad-year" min="2020" required></div>
+                <div class="form-group"><label for="s-password">Password (6+ characters)</label><input type="password" id="s-password" minlength="6" required></div>
+                <button type="submit" class="submit-btn">Agree & Join</button>
+            </form>
+        </div>
+
+        <!-- Alumni Form -->
+        <div id="alumni-form" class="form-container">
+            <form action="index.html">
+                <div class="form-group"><label for="a-name">Full Name</label><input type="text" id="a-name" required></div>
+                <div class="form-group"><label for="a-email">Email Address</label><input type="email" id="a-email" required></div>
+                <div class="form-group"><label for="a-grad-year">Graduation Year</label><input type="number" id="a-grad-year" required></div>
+                <div class="form-group"><label for="a-company">Current Company</label><input type="text" id="a-company"></div>
+                <div class="form-group"><label for="a-title">Job Title</label><input type="text" id="a-title"></div>
+                <div class="form-group"><label for="a-password">Password (6+ characters)</label><input type="password" id="a-password" minlength="6" required></div>
+                <p style="font-size:0.8rem; text-align:center; color: var(--text-secondary-color);">Your account will be pending verification from your college admin.</p>
+                <button type="submit" class="submit-btn">Agree & Join</button>
+            </form>
+        </div>
+
+        <!-- College Form -->
+        <div id="college-form" class="form-container">
+            <form action="dashboard.html">
+                <div class="form-group"><label for="c-name">College Name</label><input type="text" id="c-name" required></div>
+                <div class="form-group"><label for="c-admin-name">Administrator Name</label><input type="text" id="c-admin-name" required></div>
+                <div class="form-group"><label for="c-email">Official Email Address</label><input type="email" id="c-email" required></div>
+                <div class="form-group"><label for="c-password">Password (6+ characters)</label><input type="password" id="c-password" minlength="6" required></div>
+                <button type="submit" class="submit-btn">Register College</button>
+            </form>
+        </div>
+
+        <div class="login-link">
+            Already on AlumniNet? <a href="login.html">Sign in</a>
+        </div>
+    </div>
+
+    <script>
+        const roleButtons = document.querySelectorAll('.role-btn');
+        const formContainers = document.querySelectorAll('.form-container');
+
+        roleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                roleButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const formId = button.getAttribute('data-form');
+                formContainers.forEach(form => {
+                    if (form.id === formId) {
+                        form.classList.add('active');
+                    } else {
+                        form.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

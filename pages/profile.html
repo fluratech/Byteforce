@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarav Sharma - AlumniNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Base Styles (reused from index.html) -->
+    <style>
+        :root {
+            --primary-color: #0A66C2;
+            --background-color: #f3f2ef;
+            --card-background-color: #ffffff;
+            --text-color: #333333;
+            --text-secondary-color: #666666;
+            --border-color: #e0e0e0;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--background-color); margin: 0; padding-top: 55px; color: var(--text-color); }
+        .card { background-color: var(--card-background-color); border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+        .header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--card-background-color); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; padding: 0 10%; height: 55px; z-index: 1000; }
+        .header-left { display: flex; align-items: center; }
+        .logo { color: var(--primary-color); font-size: 1.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem; }
+        .search-bar { background-color: #eef3f8; border-radius: 4px; display: flex; align-items: center; padding: 0.5rem; width: 280px; }
+        .search-bar i { color: var(--text-secondary-color); }
+        .search-bar input { border: none; background: transparent; outline: none; margin-left: 0.5rem; width: 100%; }
+        .header-right { display: flex; align-items: center; }
+        .main-nav { display: flex; }
+        .nav-item { text-decoration: none; color: var(--text-secondary-color); display: flex; flex-direction: column; align-items: center; padding: 0 1rem; font-size: 0.8rem; }
+        .nav-item i { font-size: 1.2rem; }
+        .nav-item.active, .nav-item:hover { color: var(--text-color); }
+        .user-profile { display: flex; flex-direction: column; align-items: center; cursor: pointer; margin-left: 1rem; font-size: 0.8rem; color: var(--text-secondary-color); }
+        .profile-pic { width: 25px; height: 25px; border-radius: 50%; }
+
+        /* Profile Specific Styles */
+        .main-container { display: grid; grid-template-columns: 2.5fr 1fr; gap: 1.5rem; max-width: 1128px; margin: 1.5rem auto; padding: 0 1rem; }
+        .profile-main { padding: 0; }
+        .profile-header { padding: 1.5rem; }
+        .profile-header-bg { background: linear-gradient(to right, #0073b1, #00b5e2); height: 150px; border-radius: 8px 8px 0 0;}
+        .profile-details { display: flex; align-items: flex-start; }
+        .profile-picture { width: 150px; height: 150px; border-radius: 50%; border: 4px solid white; margin-top: -75px; margin-right: 1.5rem; }
+        .profile-info h2 { margin: 0; font-size: 1.8rem; }
+        .profile-info p { margin: 0.2rem 0; color: var(--text-secondary-color); }
+        .profile-actions { margin-top: 1rem; }
+        .btn-primary { background-color: var(--primary-color); color: white; border: none; font-weight: bold; border-radius: 20px; padding: 0.5rem 1.5rem; cursor: pointer; }
+        .btn-secondary { background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); font-weight: bold; border-radius: 20px; padding: 0.5rem 1.5rem; cursor: pointer; margin-left: 0.5rem; }
+
+        .profile-section { padding: 1.5rem; }
+        .profile-section h3 { margin: 0 0 1rem; }
+        .experience-item, .education-item { display: flex; margin-bottom: 1rem; }
+        .item-logo { width: 50px; height: 50px; margin-right: 1rem; }
+        .item-details h4 { margin: 0; }
+        .item-details p { margin: 0.2rem 0; font-size: 0.9rem; color: var(--text-secondary-color); }
+
+        .sidebar-card { padding: 1rem; }
+        .sidebar-card h4 { margin: 0 0 1rem; }
+        .person-item { display: flex; align-items: center; margin-bottom: 1rem; }
+        .person-item img { width: 50px; height: 50px; border-radius: 50%; margin-right: 1rem; }
+        .person-details h5 { margin: 0; }
+        .person-details p { margin: 0.2rem 0; font-size: 0.8rem; color: var(--text-secondary-color); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo"><i class="fas fa-graduation-cap"></i> AlumniNet</a>
+            <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="network.html" class="nav-item"><i class="fas fa-users"></i><span>My Network</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
+                <a href="messaging.html" class="nav-item"><i class="fas fa-comment-dots"></i><span>Messaging</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Events</span></a>
+            </nav>
+            <a href="profile.html" class="user-profile">
+                <img src="https://i.pravatar.cc/40?img=12" alt="User Avatar" class="profile-pic">
+                <span>Me <i class="fas fa-caret-down"></i></span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Main Profile Content -->
+        <section class="profile-main">
+            <div class="profile-header-card card">
+                <div class="profile-header-bg"></div>
+                <div class="profile-header">
+                    <div class="profile-details">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Aarav Sharma" class="profile-picture">
+                        <div class="profile-info">
+                            <h2>Aarav Sharma</h2>
+                            <p>Student of Computer Science at National Institute of Technology</p>
+                            <p>Kochi, Kerala, India • <a href="#" style="text-decoration:none; color:var(--primary-color); font-weight:bold;">Contact Info</a></p>
+                            <p><strong>128 Connections</strong></p>
+                            <div class="profile-actions">
+                                <button class="btn-primary"><i class="fas fa-user-plus"></i> Connect</button>
+                                <button class="btn-secondary"><i class="fas fa-paper-plane"></i> Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="education-section card profile-section">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <img src="https://placehold.co/50x50/DDDDDD/000000?text=NIT" alt="College Logo" class="item-logo">
+                    <div class="item-details">
+                        <h4>National Institute of Technology</h4>
+                        <p>Bachelor of Technology - BTech, Computer Science</p>
+                        <p>2022 - 2026 (Expected)</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Activity Section (Placeholder) -->
+             <div class="activity-section card profile-section">
+                <h3>Activity</h3>
+                <p>Aarav hasn't posted lately.</p>
+             </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="profile-sidebar">
+            <div class="sidebar-card card">
+                <h4>People also viewed</h4>
+                <div class="person-item">
+                    <img src="https://i.pravatar.cc/50?img=3" alt="User">
+                    <div>
+                        <h5>Priya Patel</h5>
+                        <p>Software Engineer at Google</p>
+                    </div>
+                </div>
+                <div class="person-item">
+                    <img src="https://i.pravatar.cc/50?img=4" alt="User">
+                    <div>
+                        <h5>Rohan Joshi</h5>
+                        <p>Founder & CEO at InnovateStartups</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>
