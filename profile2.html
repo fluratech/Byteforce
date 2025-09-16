@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Joshi | AlumniNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A66C2;
+            --background-color: #f3f2ef;
+            --card-background-color: #ffffff;
+            --text-color: #333333;
+            --text-secondary-color: #666666;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding-top: 55px;
+            color: var(--text-color);
+        }
+        .card {
+            background-color: var(--card-background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-background-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            height: 55px;
+            z-index: 1000;
+        }
+        .header-left { display: flex; align-items: center; }
+        .logo { color: var(--primary-color); font-size: 1.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem; }
+        .search-bar { background-color: #eef3f8; border-radius: 4px; display: flex; align-items: center; padding: 0.5rem; width: 280px; }
+        .search-bar i { color: var(--text-secondary-color); }
+        .search-bar input { border: none; background: transparent; outline: none; margin-left: 0.5rem; width: 100%; }
+        .header-right { display: flex; align-items: center; }
+        .main-nav { display: flex; }
+        .nav-item { text-decoration: none; color: var(--text-secondary-color); display: flex; flex-direction: column; align-items: center; padding: 0 1rem; font-size: 0.8rem; }
+        .nav-item i { font-size: 1.2rem; }
+        .nav-item.active, .nav-item:hover { color: var(--text-color); }
+        .user-profile { display: flex; flex-direction: column; align-items: center; cursor: pointer; margin-left: 1rem; font-size: 0.8rem; color: var(--text-secondary-color); }
+        .profile-pic { width: 25px; height: 25px; border-radius: 50%; }
+        .main-container { max-width: 896px; margin: 1.5rem auto; padding: 0 1rem; }
+        .profile-card { padding: 1.5rem; }
+        .profile-header-bg { background: linear-gradient(to right, #4a00e0, #8e2de2); height: 120px; border-radius: 8px 8px 0 0; margin: -1.5rem -1.5rem 0 -1.5rem; }
+        .profile-info { display: flex; align-items: flex-end; margin-top: -60px; }
+        .profile-picture { width: 150px; height: 150px; border-radius: 50%; border: 4px solid white; }
+        .profile-details { margin-left: 1.5rem; flex-grow: 1; }
+        .profile-details h1 { margin: 1.5rem 0 0.2rem; }
+        .profile-details p { margin: 0.2rem 0; color: var(--text-secondary-color); }
+        .profile-actions { margin-top: 1rem; }
+        .btn { padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid; font-weight: bold; cursor: pointer; }
+        .btn-primary { background-color: var(--primary-color); color: white; border-color: var(--primary-color); }
+        .btn-secondary { background-color: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+        .content-card { padding: 1.5rem; }
+        .content-card h2 { margin-top: 0; }
+        .experience-item, .education-item { display: flex; margin-bottom: 1rem; }
+        .item-logo { width: 50px; height: 50px; margin-right: 1rem; }
+        .item-details h4, .item-details p { margin: 0; }
+        .item-details p { color: var(--text-secondary-color); }
+        @media (max-width: 768px) {
+            .header { padding: 0 1rem; }
+            .search-bar { display: none; }
+            .nav-item span { display: none; }
+            .nav-item { padding: 0 0.75rem; }
+            .profile-info { flex-direction: column; align-items: center; text-align: center; margin-top: -80px; }
+            .profile-details { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="https://fluratech.github.io/Byteforce/" class="logo"><i class="fas fa-graduation-cap"></i> AlumniNet</a>
+            <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="https://fluratech.github.io/Byteforce" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="https://fluratech.github.io/Byteforce/network.html" class="nav-item"><i class="fas fa-users"></i><span>My Network</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
+                <a href="https://fluratech.github.io/Byteforce/messaging.html" class="nav-item"><i class="fas fa-comment-dots"></i><span>Messaging</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Events</span></a>
+            </nav>
+            <a href="https://fluratech.github.io/Byteforce/profile.html" class="user-profile" style="text-decoration: none; color: inherit;">
+                <img src="https://i.pravatar.cc/40?img=12" alt="User Avatar" class="profile-pic">
+                <span>Me <i class="fas fa-caret-down"></i></span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Profile Card -->
+        <div class="profile-card card">
+            <div class="profile-header-bg"></div>
+            <div class="profile-info">
+                <img src="https://i.pravatar.cc/150?img=4" alt="Rohan Joshi" class="profile-picture">
+                <div class="profile-details">
+                    <h1>Rohan Joshi</h1>
+                    <p>Founder & CEO at InnovateStartups | Class of 2015</p>
+                    <p>Bangalore, Karnataka, India • <a href="#">Contact info</a></p>
+                    <p>500+ connections</p>
+                    <div class="profile-actions">
+                        <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Connect</button>
+                        <button class="btn btn-secondary">Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Card -->
+        <div class="content-card card">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <img src="https://placehold.co/50x50/8e2de2/FFFFFF?text=I" alt="InnovateStartups Logo" class="item-logo">
+                <div class="item-details">
+                    <h4>Founder & CEO</h4>
+                    <p>InnovateStartups • Full-time</p>
+                    <p>Aug 2017 - Present • 8 years 2 months</p>
+                    <p>Building a platform to connect student innovators with industry mentors and funding opportunities.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Card -->
+        <div class="content-card card">
+            <h2>Education</h2>
+            <div class="education-item">
+                <img src="https://placehold.co/50x50/333333/FFFFFF?text=C" alt="College Logo" class="item-logo">
+                <div class="item-details">
+                    <h4>National College of Engineering</h4>
+                    <p>Bachelor of Engineering - BE, Mechanical Engineering</p>
+                    <p>2011 - 2015</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
