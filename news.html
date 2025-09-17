@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events | AlumniNet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A66C2;
+            --background-color: #f3f2ef;
+            --card-background-color: #ffffff;
+            --text-color: #333333;
+            --text-secondary-color: #666666;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding-top: 55px;
+            color: var(--text-color);
+        }
+        .card {
+            background-color: var(--card-background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--card-background-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            height: 55px;
+            z-index: 1000;
+        }
+        .header-left { display: flex; align-items: center; }
+        .logo { color: var(--primary-color); font-size: 1.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem; }
+        .search-bar { background-color: #eef3f8; border-radius: 4px; display: flex; align-items: center; padding: 0.5rem; width: 280px; }
+        .search-bar i { color: var(--text-secondary-color); }
+        .search-bar input { border: none; background: transparent; outline: none; margin-left: 0.5rem; width: 100%; }
+        .header-right { display: flex; align-items: center; }
+        .main-nav { display: flex; }
+        .nav-item { text-decoration: none; color: var(--text-secondary-color); display: flex; flex-direction: column; align-items: center; padding: 0 1rem; font-size: 0.8rem; }
+        .nav-item i { font-size: 1.2rem; }
+        .nav-item.active, .nav-item:hover { color: var(--text-color); }
+        .user-profile { display: flex; flex-direction: column; align-items: center; cursor: pointer; margin-left: 1rem; font-size: 0.8rem; color: var(--text-secondary-color); }
+        .profile-pic { width: 25px; height: 25px; border-radius: 50%; }
+        
+        .main-container {
+            max-width: 960px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+        .page-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            background-color: var(--card-background-color);
+            border-radius: 8px;
+        }
+        .page-header h1 {
+            margin: 0;
+        }
+        .event-card {
+            display: flex;
+            padding: 1.5rem;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        .event-date {
+            text-align: center;
+            border-right: 2px solid var(--primary-color);
+            padding-right: 1.5rem;
+        }
+        .event-date .month {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+        .event-date .day {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .event-details {
+            flex-grow: 1;
+        }
+        .event-details h3 {
+            margin: 0 0 0.5rem;
+        }
+        .event-meta {
+            color: var(--text-secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .event-meta span {
+            margin-right: 1rem;
+        }
+        .event-description {
+            margin-bottom: 1rem;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: white;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 1rem; }
+            .search-bar { display: none; }
+            .nav-item span { display: none; }
+            .event-card { flex-direction: column; }
+            .event-date { border-right: none; border-bottom: 2px solid var(--primary-color); padding-right: 0; padding-bottom: 1rem; margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="https://fluratech.github.io/Byteforce/" class="logo"><i class="fas fa-graduation-cap"></i> AlumniNet</a>
+            <div class="search-bar"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+        </div>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="https://fluratech.github.io/Byteforce/" class="nav-item"><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="https://fluratech.github.io/Byteforce/network.html" class="nav-item"><i class="fas fa-users"></i><span>My Network</span></a>
+                <a href="#" class="nav-item"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
+                <a href="https://fluratech.github.io/Byteforce/messaging.html" class="nav-item"><i class="fas fa-comment-dots"></i><span>Messaging</span></a>
+                <a href="https://fluratech.github.io/Byteforce/news.html" class="nav-item active"><i class="fas fa-calendar-alt"></i><span>Events</span></a>
+            </nav>
+            <a href="https://fluratech.github.io/Byteforce/profile.html" class="user-profile" style="text-decoration: none; color: inherit;">
+                <img src="https://i.pravatar.cc/40?img=12" alt="User Avatar" class="profile-pic">
+                <span>Me <i class="fas fa-caret-down"></i></span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="page-header">
+            <h1>News & Events</h1>
+        </div>
+
+        <!-- Event 1 -->
+        <div class="event-card card">
+            <div class="event-date">
+                <div class="month">Oct</div>
+                <div class="day">15</div>
+            </div>
+            <div class="event-details">
+                <h3>Annual Alumni Meet 2025</h3>
+                <div class="event-meta">
+                    <span><i class="fas fa-clock"></i> 6:00 PM - 9:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> College Auditorium</span>
+                </div>
+                <p class="event-description">Join us for the most awaited event of the year! A night of nostalgia, networking, and fun. Reconnect with old friends, meet new alumni, and cherish your college memories.</p>
+                <a href="#" class="btn">Register Now</a>
+            </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card card">
+            <div class="event-date">
+                <div class="month">Nov</div>
+                <div class="day">05</div>
+            </div>
+            <div class="event-details">
+                <h3>Job Fair for Final Year Students</h3>
+                <div class="event-meta">
+                    <span><i class="fas fa-clock"></i> 10:00 AM - 4:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Campus Grounds</span>
+                </div>
+                <p class="event-description">A great opportunity for students to connect with top companies. Many of our alumni will be present as recruiters. Bring your resumes and dress for success!</p>
+                <a href="#" class="btn">View Companies</a>
+            </div>
+        </div>
+        
+        <!-- Event 3 -->
+        <div class="event-card card">
+            <div class="event-date">
+                <div class="month">Sep</div>
+                <div class="day">22</div>
+            </div>
+            <div class="event-details">
+                <h3>Guest Lecture on AI by Vikram Singh ('12)</h3>
+                <div class="event-meta">
+                    <span><i class="fas fa-clock"></i> 3:00 PM</span>
+                    <span><i class="fas fa-video"></i> Online Webinar</span>
+                </div>
+                <p class="event-description">Distinguished alumnus Vikram Singh, now a lead AI researcher at Tech Corp, will be sharing insights on the future of Artificial Intelligence. A must-attend for all tech enthusiasts.</p>
+                <a href="#" class="btn">Join Online</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
