@@ -38,9 +38,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 10%;
+            padding: 0 5%; /* reduced padding */
             height: 55px;
             z-index: 1000;
+            flex-wrap: wrap; /* allow wrapping if too many items */
+            box-sizing: border-box; /* ensures padding doesn't push width */
+            overflow-x: hidden; /* hide horizontal overflow */
         }
         .header-left { display: flex; align-items: center; }
         .logo { color: var(--primary-color); font-size: 1.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem; }
